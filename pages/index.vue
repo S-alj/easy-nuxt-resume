@@ -85,9 +85,6 @@
               <nuxt-link class="btn btn-light" :to="switchLocalePath('en')"
                 >EN</nuxt-link
               >
-              <nuxt-link class="btn btn-light" :to="switchLocalePath('es')"
-                >ES</nuxt-link
-              >
             </div>
           </li>
         </ul>
