@@ -58,7 +58,7 @@ Resources:
             touch update_cv_restart.sh
             echo "#!/bin/bash" >> update_cv_restart.sh
             echo 'ps -ef | grep "/bin/serve -s dist" | grep -v grep | awk '\'{print \$2}\'' | xargs kill' >> update_cv_restart.sh
-            echo 'cd /home/ec2-user/nuxt-resume/' >> update_cv_restart.sh
+            echo 'cd /home/ec2-user/easy-nuxt-resume/' >> update_cv_restart.sh
             echo 'echo n | npm run generate' >> update_cv_restart.sh
             echo 'serve -s dist &' >> update_cv_restart.sh
             chown ec2-user update_cv_restart.sh
@@ -66,12 +66,12 @@ Resources:
             chmod +x update_cv_restart.sh
             touch change_site_title.sh
             echo '#!/bin/bash' >> change_site_title.sh
-            echo 'cd /home/ec2-user/nuxt-resume/pages/' >> change_site_title.sh
+            echo 'cd /home/ec2-user/easy-nuxt-resume/pages/' >> change_site_title.sh
             echo "sed -i \"0,/title: \\\"Iván Greve\\\"/s//title: \\\"\$1\\\"/\" index.vue" >> change_site_title.sh
             chown ec2-user change_site_title.sh
             chgrp ec2-user change_site_title.sh
             chmod +x change_site_title.sh
-            sudo -u ec2-user bash -c 'git clone https://github.com/S-alj/easy-nuxt-resume; /home/ec2-user/change_site_title.sh ${PageTitle}; cd nuxt-resume/; npm install; echo n | npm run build; echo n | npm run generate; serve -s dist'
+            sudo -u ec2-user bash -c 'git clone https://github.com/S-alj/easy-nuxt-resume; /home/ec2-user/change_site_title.sh ${PageTitle}; cd easy-nuxt-resume/; npm install; echo n | npm run build; echo n | npm run generate; serve -s dist'
   InstanceSecurityGroup:
     Type: AWS::EC2::SecurityGroup
     Properties:
